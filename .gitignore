@@ -1,3 +1,6 @@
 hidden/
 results/tmp/
 results/html/
+*.pyc
+# This is 
+hidden*.py 
