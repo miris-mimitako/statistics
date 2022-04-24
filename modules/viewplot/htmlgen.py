@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 '''
-Rev: 0.0.2
+Rev: 0.0.3
 '''
 # debug
 import seaborn as sns
@@ -54,7 +54,16 @@ class HtmlGenerator:
 
         plot_data.savefig(os.path.join(self.directory_location, title))
         self.params["parameter"].append({"title": str(title), "img_src": str(os.path.join(
-            self.relation_directory_location, title + ".png")), "comment": str(comment)})
+            self.relation_directory_location, title + ".png")), "comment": str(comment), "flag": "img"})
+
+        self.global_counter += 1
+
+    def data_frame_generator(self, data_frame, title="", comment=""):
+        if title == False:
+            title = "dataframe :" + str(self.global_counter)
+
+        self.params["parameter"].append({"title": str(
+            title), "dataframe": data_frame, "comment": str(comment), "flag": "dataframe"})
 
         self.global_counter += 1
 
