@@ -1,7 +1,7 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+$background_color:#b8e7fd;
+
+
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -57,6 +57,10 @@ p{
 
 img{
     margin:16px auto;
+}
+
+body{
+	background-color: $background_color;
 }
 
 .main{
