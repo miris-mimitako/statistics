@@ -7,10 +7,14 @@
     <section class="main">
       <h1>{{html_title}}</h1>
       {%for content in set_data %}
+        {% if content.flag == "img"%}
           <h2>{{ content.title }}</h2>
           <img class="main__content--image" src="{{content.img_src}}" />
           <a href="{{content.img_src}}">Data Link Raw Image</a>
           <p>{{ content.comment }}</p>
+        {% elif content.flag == "dataframe" %}
+          {{ content.dataframe.to_html()|safe}}
+        {%endif%}
       {%endfor%}
     </section>
   </body>
