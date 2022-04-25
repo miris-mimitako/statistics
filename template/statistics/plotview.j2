@@ -13,6 +13,8 @@
           <a href="{{content.img_src}}">Data Link Raw Image</a>
           <p>{{ content.comment }}</p>
         {% elif content.flag == "dataframe" %}
+          <h2>{{content.title}} </h2>
+          <p>{{content.comment}}</p>
         <div class ="table">
           {{ content.dataframe.to_html()|safe}}
         </div>
