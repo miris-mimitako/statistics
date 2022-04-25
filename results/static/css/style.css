@@ -67,25 +67,39 @@ body {
 .table {
   overflow: auto;
   width: 100%;
-  height: 200px;
+  max-height: 400px;
+  background-color: #ffffff;
 }
 
-th {
+.table th {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
-  background: #f2f2f2;
+  background: #88c7f1;
+  padding: 4px;
+  text-align: left;
+  border-right: 1px solid #0a2c9b;
+  border-bottom: 1px solid #0a2c9b;
 }
 
-tr:first-child th:first-child {
+.table td {
+  text-align: right;
+  padding: 8px 8px 4px 16px;
+}
+
+.table tr:first-child th:first-child {
   z-index: 1;
 }
 
-td, th {
-  border-right: 1px solid #999;
-  border-bottom: 1px solid #999;
+.table td, .table th {
+  border-right: 1px solid #0a2c9b;
+  border-bottom: 1px solid #0a2c9b;
   white-space: nowrap;
+}
+
+.table tr:nth-of-type(2n) {
+  background-color: #d2dbdf;
 }
 
 .example tr:first-child th {

@@ -1,4 +1,8 @@
 $background_color:#b8e7fd;
+$table_background_color:#4fb1df;
+$table_row_background_color:#d2dbdf;
+$table_base_background_color:#ffffff;
+
 
 
 
@@ -63,37 +67,59 @@ body{
 	background-color: $background_color;
 }
 
-.table{
-    overflow: auto;
-    width: 100%;
-    height: 200px;
-}
 
 table{
 }
 
-th{
-	position: sticky;
-    top: 0;
-    left: 0;
-	background: #f2f2f2;
+
+.table{
+    overflow: auto;
+    width: 100%;
+    max-height: 400px;
+	background-color: $table_base_background_color;
+
+	th{
+		position: sticky;
+		top: 0;
+		left: 0;
+		background: #88c7f1;
+		padding: 4px;
+		text-align: left;
+		border-right: 1px solid #0a2c9b;
+		border-bottom: 1px solid #0a2c9b;
+
+	}
+	
+	td{
+		text-align: right;
+		padding: 8px 8px 4px 16px;
+	}
+	
+	tr:first-child th:first-child{
+		z-index: 1;
+	}
+	
+	td,th{
+		border-right: 1px solid #0a2c9b;
+		border-bottom: 1px solid #0a2c9b;
+		white-space: nowrap
+	}
+
+	tr:nth-of-type(2n){
+		background-color: $table_row_background_color;
+	}
+
 }
 
-tr:first-child th:first-child{
-    z-index: 1;
-}
 
-td,th{
-    border-right: 1px solid #999;
-    border-bottom: 1px solid #999;
-	white-space: nowrap
-}
-.example tr:first-child th{
-    border-top: 1px solid #999;
-}
-.example th:first-child{
-    border-left: 1px solid #999;
-}
+	.example tr:first-child th{
+		border-top: 1px solid #999;
+	}
+	.example th:first-child{
+		border-left: 1px solid #999;
+	}
+	
+
 
 .main{
     padding:0px 20px;
