@@ -46,6 +46,7 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  position: relative;
 }
 
 h2 {
@@ -66,31 +67,37 @@ body {
 
 .table {
   overflow: auto;
-  width: 100%;
+  max-width: 100%;
   max-height: 400px;
   background-color: #ffffff;
   margin: 16px 0px;
 }
 
 .table th {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  left: 0;
   background: #88c7f1;
   padding: 4px;
   text-align: left;
   border-right: 1px solid #0a2c9b;
-  border-bottom: 1px solid #0a2c9b;
+  border-bottom: 2px double #0a2c9b;
+}
+
+.table thead tr:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.table tbody th {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 800;
 }
 
 .table td {
   text-align: right;
   padding: 8px 8px 4px 16px;
-}
-
-.table tr:first-child th:first-child {
-  z-index: 1;
 }
 
 .table td, .table th {
