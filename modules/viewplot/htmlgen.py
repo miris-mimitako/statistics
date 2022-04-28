@@ -26,8 +26,8 @@ class HtmlGenerator:
 
     def make_directory_for_result(self):
         self.base_directory = Path(__file__).resolve().parent.parent.parent
-        now_date = datetime.datetime.today()
-        folder_name = str(now_date.date()) + "-" + \
+        self.now_date = datetime.datetime.today()
+        folder_name = str(self.now_date.date()) + "-" + \
             re.sub(r"[^a-zA-Z0-9]", "", self.project_title)
 
         flag_of_mkdir = True
@@ -50,6 +50,7 @@ class HtmlGenerator:
         # E while
 
     def plot_image_generator(self, plot_data, title="", comment=""):
+        # This function makes plot image of SNS and mathlibplot.
         if title == False:
             title = "plot :" + str(self.global_counter)
 
@@ -68,6 +69,18 @@ class HtmlGenerator:
 
         self.global_counter += 1
 
+
+    def text_generator(self,to_text_data,*args, **kwargs):
+        if args:
+            self.params["parameter"].append({"comment":str(to_text_data),"text_data":args, "flag":"to_list_text"})
+        elif kwargs:
+            self.params["parameter"].append({"comment":str(to_text_data),"text_data":kwargs.text, "flag":"to_dict_text"})
+        else:
+            self.params["parameter"].append({"comment":str(to_text_data),"flag":"to_text"})
+
+        self.global_counter += 1
+
+
     def html_writer(self):
         # Read template
         env = Environment(loader=FileSystemLoader(os.path.join(
@@ -84,7 +97,7 @@ class HtmlGenerator:
         set_data = self.params["parameter"]
         rendered_html = tmpl.render(
             set_data=set_data, html_title=self.project_title)
-        with open(os.path.join(self.base_directory, "results/html")+"/" + str(self.project_title) + "-" + str(self.dir_counter) + '.html', 'w', encoding="utf-8") as f:
+        with open(os.path.join(self.base_directory, "results/html") +"/"+ str(self.project_title)+ "-" +str(self.now_date.date()) + "-" + str(self.dir_counter) + '.html', 'w', encoding="utf-8") as f:
             f.write(rendered_html)
         # E def html_writer
 
