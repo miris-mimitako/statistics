@@ -18,6 +18,28 @@
         <div class ="table">
           {{ content.dataframe.to_html()|safe}}
         </div>
+        {% elif content.flag =="to_text"%}
+        <div>
+          <p>{{content.comment}}</p>
+        </div>
+        {% elif content.flag =="to_list_text"%}
+        <div class ="table">
+          {% for unpack_list in content.text_data %}
+            <table>
+
+            {% for list_text in unpack_list %}
+            <tr>
+              {% for actual_text in list_text %}
+                <td>{{actual_text}}</td>
+              {%endfor%}
+            </tr>
+
+            {% endfor %}
+          </table>
+
+          {%endfor%}
+        </div>
+
         {%endif%}
       {%endfor%}
     </section>
