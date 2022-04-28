@@ -73,12 +73,18 @@ body {
   margin: 16px 0px;
 }
 
+.table thead tr th {
+  background: #88c7f1;
+  padding: 4px;
+  text-align: left;
+  border-right: 1px double #0a2c9b;
+  border-bottom: 2px double #0a2c9b;
+}
+
 .table th {
   background: #88c7f1;
   padding: 4px;
   text-align: left;
-  border-right: 1px solid #0a2c9b;
-  border-bottom: 2px double #0a2c9b;
 }
 
 .table thead tr:first-child {

@@ -79,13 +79,20 @@ body{
 	background-color: $table_base_background_color;
 	margin: 16px 0px;
 
+	thead tr th{
+		background: #88c7f1;
+		padding: 4px;
+		text-align: left;
+		border-right: 1px double #0a2c9b;
+		border-bottom: 2px double #0a2c9b;
+	}
+
 	th{
 		background: #88c7f1;
 		padding: 4px;
 		text-align: left;
-		border-right: 1px solid #0a2c9b;
-		border-bottom: 2px double #0a2c9b;
 	}
+	
 
 	thead tr:first-child{
 		position: sticky;
